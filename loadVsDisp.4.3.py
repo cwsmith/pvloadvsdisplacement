@@ -21,15 +21,12 @@ def addColumn(table,name,v):
 
 info = inputs[0].GetInformation()
 t=info.Get(vtk.vtkDataObject.DATA_TIME_STEP())
-print 'time', t
 
 max_stress = maxStress(inputs[0])
-print 'max_stress', max_stress
 
 d = inputs[0].PointData["Solution"]
 max_disp = alg.max_per_block(alg.mag(d)).Arrays[0]
-print 'max_disp', max_disp
 
 addColumn(output,'time',t)
-addColumn(output,'XArrayName',max_disp)
+addColumn(output,'max_disp',max_disp)
 addColumn(output,'max_stress',max_stress)
