@@ -1,5 +1,9 @@
-# pvloadvsdisplacement
-Python code for a Paraview programmable filter that supports plotting the maximum load vs the maximum displacement over time for a set of user selected elements. 
+# pvloadvsdisplacement 
+Python code for a Paraview programmable filter that
+supports plotting the maximum load vs the maximum displacement over time for a
+set of user selected elements. The values being computed are specific to a
+solid mechanics analysis run in ghansen/Albany, but the process and code can be
+extended to support other inputs.
 
 Tested in Paraview 4.3.1 on GNU/Linux.
 
