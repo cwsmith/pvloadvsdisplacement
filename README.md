@@ -12,3 +12,4 @@ Tested in Paraview 4.3.1 on GNU/Linux.
 * Paste loadVsDisp.4.3.py into the 'Script' text box
 * Paste loadVsDisp.reqInfo.4.3.py into the 'RequestInformation Script' text box
 * Paste loadVsDisp.reqUpExt.4.3.py into the 'RequestUpdateExtent Script' text box
+* Set 'Output Data Set Type' to 'vtkTable'
