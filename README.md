@@ -1,6 +1,6 @@
 # pvloadvsdisplacement
 
-* open pvtu files
+* Open a pvtu file
 * select some elements via 'select elements through'
 * Filters->Alphabetical->Extract Selection 
 * Click apply
