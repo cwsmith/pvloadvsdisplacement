@@ -24,3 +24,8 @@ Tested in Paraview 4.3.1 on GNU/Linux.
 * Under 'X Axis Parameters' set 'X Array Name' to 'max_disp'
 * Under 'Series Parameters' select only the 'max_stress' box
 * The plot title and axis labels can be set as needed via the other filter properties 
+
+# Helpful documentation
+
+[VTK C++](http://www.vtk.org/doc/nightly/html/classvtkTable.html)
+[Python and C++ Examples](http://www.vtk.org/doc/nightly/html/c2_vtk_e_8.html)
