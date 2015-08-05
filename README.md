@@ -10,6 +10,11 @@ Tested in Paraview 4.3.1 on GNU/Linux.
 * Click apply
 * Filters->Alphabetical->Programmable Filter
 * Paste loadVsDisp.4.3.py into the 'Script' text box
-* Paste loadVsDisp.reqInfo.4.3.py into the 'RequestInformation Script' text box
-* Paste loadVsDisp.reqUpExt.4.3.py into the 'RequestUpdateExtent Script' text box
 * Set 'Output Data Set Type' to 'vtkTable'
+* Click apply
+* Click the row in the spreadsheet window - it should become shaded
+* Filters->Alphabetical->Plot Selection Over Time
+* Click apply
+* Under 'X Axis Parameters' set 'X Array Name' to 'max_disp'
+* Under 'Series Parameters' select only the 'max_stress' box
+* The plot title and axis labels can be set as needed via the other filter properties 
