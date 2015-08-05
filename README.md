@@ -28,4 +28,5 @@ Tested in Paraview 4.3.1 on GNU/Linux.
 # Helpful documentation
 
 [VTK C++](http://www.vtk.org/doc/nightly/html/classvtkTable.html)
+
 [Python and C++ Examples](http://www.vtk.org/doc/nightly/html/c2_vtk_e_8.html)
