@@ -1,5 +1,7 @@
 # pvloadvsdisplacement
+Python code for a Paraview programmable filter that hopes to support plotting the maximum load vs the maximum displacement over a set of user selected elements.
 
+# How to use
 * Open a pvtu file
 * select some elements via 'select elements through'
 * Filters->Alphabetical->Extract Selection 
