@@ -1,0 +1,91 @@
+<ServerManagerConfiguration>
+  <ProxyGroup name="filters">
+    <SourceProxy name="Load Vs Displacement" class="vtkPythonProgrammableFilter" label="Load Vs Displacement">
+
+      <Documentation
+        long_help="Plot the maximum load vs the maximum displacement for a selected set of elements"
+        short_help="Plot the maximum load vs the maximum displacement for a selected set of elements">
+      </Documentation>
+
+
+      <InputProperty
+        name="Input"
+        command="SetInputConnection">
+          <ProxyGroupDomain name="groups">
+            <Group name="sources"/>
+            <Group name="filters"/>
+          </ProxyGroupDomain>
+
+          <DataTypeDomain name="input_type">
+            <DataType value="vtkUnstructuredGrid"/>
+          </DataTypeDomain>
+      </InputProperty>
+
+
+      <StringVectorProperty
+        name="displacementFieldName"
+        label="displacementFieldName"
+        initial_string="displacementFieldName"
+        command="SetParameter"
+        animateable="1"
+        default_values="Solution"
+        number_of_elements="1">
+        <Documentation></Documentation>
+      </StringVectorProperty>
+
+
+      <IntVectorProperty
+        name="numStressFields"
+        label="numStressFields"
+        initial_string="numStressFields"
+        command="SetParameter"
+        animateable="1"
+        default_values="0"
+        number_of_elements="1">
+        <Documentation></Documentation>
+      </IntVectorProperty>
+
+
+      <StringVectorProperty
+        name="stressFieldName"
+        label="stressFieldName"
+        initial_string="stressFieldName"
+        command="SetParameter"
+        animateable="1"
+        default_values="Cauchy_Stress_"
+        number_of_elements="1">
+        <Documentation></Documentation>
+      </StringVectorProperty>
+
+
+
+
+      <!-- Output data type: "vtkTable" -->
+      <IntVectorProperty command="SetOutputDataSetType"
+                         default_values="19"
+                         name="OutputDataSetType"
+                         number_of_elements="1"
+                         panel_visibility="never">
+        <Documentation>The value of this property determines the dataset type
+        for the output of the programmable filter.</Documentation>
+      </IntVectorProperty>
+
+
+      <StringVectorProperty
+        name="Script"
+        command="SetScript"
+        number_of_elements="1"
+        default_values="import numpy as np&#xA;import paraview.vtk.numpy_interface.algorithms as alg &#xA;from vtk import vtkFloatArray&#xA;&#xA;def maxStress(inp):&#xA;  max_stress = 0&#xA;  for i in range(1,numStressFields+1):&#xA;    name = stressFieldName + str(i)&#xA;    s = inp.CellData[name]&#xA;    ms = alg.max(alg.eigenvalue(s))&#xA;    if ms &gt; max_stress:&#xA;      max_stress = ms&#xA;  return max_stress&#xA;&#xA;def addColumn(table,name,v):&#xA;  c = vtkFloatArray()&#xA;  c.SetName(name)&#xA;  c.InsertNextValue(v)&#xA;  table.AddColumn(c)&#xA;&#xA;max_stress = maxStress(inputs[0])&#xA;d = inputs[0].PointData[displacementFieldName]&#xA;max_disp = alg.max_per_block(alg.mag(d)).Arrays[0]&#xA;&#xA;addColumn(output,'max_disp',max_disp)&#xA;addColumn(output,'max_stress',max_stress)&#xA;"
+        panel_visibility="advanced">
+        <Hints>
+         <Widget type="multi_line"/>
+       </Hints>
+      <Documentation>This property contains the text of a python program that
+      the programmable source runs.</Documentation>
+      </StringVectorProperty>
+
+
+
+    </SourceProxy>
+ </ProxyGroup>
+</ServerManagerConfiguration>
