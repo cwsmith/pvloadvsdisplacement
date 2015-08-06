@@ -10,7 +10,7 @@ Tested in Paraview 4.3.1 on GNU/Linux.
 ![plot](plot.png)
 
 # How to use
-* Open a pvtu file
+* Open a pvd file
 * select some elements via 'select elements through'
 * Filters->Alphabetical->Extract Selection 
 * Click apply
