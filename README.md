@@ -17,6 +17,7 @@ Tested in Paraview 4.3.1 on GNU/Linux.
 * Filters->Alphabetical->Programmable Filter
 * Paste loadVsDisp.4.3.py into the 'Script' text box
 * Set 'Output Data Set Type' to 'vtkTable'
+* Set 'Field Association' to 'Row Data'
 * Click apply
 * Click the row in the spreadsheet window - it should become shaded
 * Filters->Alphabetical->Plot Selection Over Time
